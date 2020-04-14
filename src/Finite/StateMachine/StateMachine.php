@@ -124,7 +124,7 @@ class StateMachine implements StateMachineInterface
                 'The "%s" transition can not be applied to the "%s" state of object "%s" with graph "%s".',
                 $transition->getName(),
                 $this->currentState->getName(),
-                empty($this->getObject())? '' : get_class($this->getObject()),
+                empty($this->getObject())? '( not object )' : get_class($this->getObject()),
                 $this->getGraph()
             ));
         }
@@ -223,7 +223,7 @@ class StateMachine implements StateMachineInterface
             throw new Exception\TransitionException(sprintf(
                 'Unable to find a transition called "%s" on object "%s" with graph "%s".',
                 $name,
-                empty($this->getObject())? '' : get_class($this->getObject()),
+                empty($this->getObject())? '( not object )' : get_class($this->getObject()),
                 $this->getGraph()
             ));
         }
@@ -242,7 +242,7 @@ class StateMachine implements StateMachineInterface
             throw new Exception\StateException(sprintf(
                 'Unable to find a state called "%s" on object "%s" with graph "%s".',
                 $name,
-                empty($this->getObject())? '' : get_class($this->getObject()),
+                empty($this->getObject())? '( not object )' : get_class($this->getObject()),
                 $this->getGraph()
             ));
         }
@@ -307,7 +307,7 @@ class StateMachine implements StateMachineInterface
 
         throw new Exception\StateException(sprintf(
             'No initial state found on object "%s" with graph "%s".',
-            empty($this->getObject())? '' : get_class($this->getObject()),
+            empty($this->getObject())? '( not object )' : get_class($this->getObject()),
             $this->getGraph()
         ));
     }
